@@ -1,4 +1,4 @@
-# Expense Reimbursement System
+# Cafe Delivery
 **Project 1.5**
 
 Push your project 1.5 code base into this repository. 
@@ -7,3 +7,6 @@ Create a folder with the following naming convention: "<first_name>"_"<last_name
 
 Create a seperate branch, following the naming scheme of: "<first_name>_<last_name>".
 
+Front end - Anthony and Brandon
+
+Back end - Tyler and Calvin
