@@ -17,16 +17,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class UserController {
 	
 	private final static Logger Log = Logger.getLogger(UserController.class);
-	private final static String URL = "http://rev-cafe-db.chqy1nhu1fok.us-east-1.rds.amazonaws.com/BTAC-Cafe-Delivery/cafe/";
+	private final static String URL = "http://localhost:8080/BTAC-Cafe-Delivery/cafe/";
 
 	public static void createUser(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		if(req.getMethod() == "POST") {
+			Log.info("In Post for Create User");
 			ObjectMapper om = new ObjectMapper();
 			User user = om.readValue(req.getReader(), User.class);
 			UserService.createUser(user);
 		} else {
-			resp.setStatus(405);
-			resp.sendRedirect(URL + "login");
+//			resp.setStatus(405);
+//			resp.sendRedirect(URL + "login");
 		}
 	}
 	
@@ -41,8 +42,8 @@ public class UserController {
 
 			resp.sendRedirect(URL + "home");
 		} else {
-			resp.setStatus(405);
-			resp.sendRedirect(URL + "home");
+//			resp.setStatus(405);
+//			resp.sendRedirect(URL + "home");
 		}
 	}
 
@@ -51,8 +52,8 @@ public class UserController {
 			Log.info("Going to Home Page");
 			
 		} else {
-			Log.info("Going to Login page");
-			resp.sendRedirect(URL + "login.html");
+//			Log.info("Going to Login page");
+//			resp.sendRedirect(URL + "login.html");
 		}
 	}
 }

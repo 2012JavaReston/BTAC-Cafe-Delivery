@@ -13,13 +13,13 @@ public class RequestHelper {
 		String endpoint = req.getRequestURI();
 		
 		switch(endpoint) {
-			case "/BTAC-Cafe-Delivery/cafe/home":
+			case "/BTAC-Cafe-Delivery/home":
 				UserController.goHome(req, resp);
 			break;
-			case "/BTAC-Cafe-Delivery/cafe/api/user":
+			case "/BTAC-Cafe-Delivery/api/user":
 				UserController.createUser(req,resp);
 				break;
-			case "/BTAC-Cafe-Delivery/cafe/api/login":
+			case "/BTAC-Cafe-Delivery/api/login":
 				UserController.login(req,resp);
 				break;
 			default:
