@@ -10,3 +10,9 @@ Create a seperate branch, following the naming scheme of: "<first_name>_<last_na
 Front end - Anthony and Brandon
 
 Back end - Tyler and Calvin
+
+# Features
+
+# Design
+
+# TO-DO
