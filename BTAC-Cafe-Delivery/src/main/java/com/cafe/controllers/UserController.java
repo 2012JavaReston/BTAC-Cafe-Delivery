@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.json.JSONObject;
 
 import com.cafe.models.User;
 import com.cafe.service.UserService;
@@ -20,19 +21,25 @@ public class UserController {
 	private final static String URL = "http://localhost:8080/BTAC-Cafe-Delivery/cafe/";
 
 	public static void createUser(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		if(req.getMethod() == "POST") {
+		Log.info(req.getMethod().toString());
+		if(req.getMethod().equals("POST")) {
+//			JSONObject json = new JSONObject();
 			Log.info("In Post for Create User");
 			ObjectMapper om = new ObjectMapper();
-			User user = om.readValue(req.getReader(), User.class);
+			User user = om.readValue(req.getReader(), com.cafe.models.User.class);
+			Log.info(user.getFirstName());
 			UserService.createUser(user);
+//			Log.info(user.getFirstName() + user.getLastName());
+//			Log.info(user.getUsername());
 		} else {
+			Log.info("Not post");
 //			resp.setStatus(405);
 //			resp.sendRedirect(URL + "login");
 		}
 	}
 	
 	public static void login(HttpServletRequest req, HttpServletResponse resp) throws JsonParseException, JsonMappingException, IOException {
-		if(req.getMethod() == "POST") {
+		if(req.getMethod().equals("POST")) {
 			Log.info("Logging in");
 			String username = req.getParameter("username");
 			String password = req.getParameter("password");

@@ -24,7 +24,7 @@ public class UserDaoHibernate implements UserDao {
 	public User verifyUser(String username, String password) {
 		// TODO Auto-generated method stub
 		Session ses = HibernateUtil.getSession();
-		User user = (User) ses.createQuery("FROM cafe_users WHERE username = :username AND password = :password")
+		User user = (User) ses.createQuery("FROM User WHERE username = :username AND password = :password")
 				.setParameter("username", username)
 				.setParameter("password", password)
 				.list().get(0);

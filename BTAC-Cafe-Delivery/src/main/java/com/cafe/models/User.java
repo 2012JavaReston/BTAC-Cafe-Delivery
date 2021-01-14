@@ -11,10 +11,10 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@Column(name = "firstname", nullable = false)
+	@Column(name = "firstName", nullable = false)
 	private String firstName;
 	
-	@Column(name = "lastname", nullable = false)
+	@Column(name = "lastName", nullable = false)
 	private String lastName;
 
 	@Column(name = "username", unique = true, nullable = false)
@@ -26,15 +26,27 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", username=" + username
+		return "User [id=" + id + ", firstname=" + firstName + ", lastname=" + lastName + ", username=" + username
 				+ ", password=" + password + "]";
 	}
 
-	public User(int id, String firstName, String lastName, String username, String password) {
+	public User() {
+		super();
+	}
+	
+	public User(int id, String firstname, String lastname, String username, String password) {
 		super();
 		this.id = id;
-		this.firstName = firstName;
-		this.lastName = lastName;
+		this.firstName = firstname;
+		this.lastName = lastname;
+		this.username = username;
+		this.password = password;
+	}
+	
+	public User(String firstname, String lastname, String username, String password) {
+		super();
+		this.firstName = firstname;
+		this.lastName = lastname;
 		this.username = username;
 		this.password = password;
 	}
