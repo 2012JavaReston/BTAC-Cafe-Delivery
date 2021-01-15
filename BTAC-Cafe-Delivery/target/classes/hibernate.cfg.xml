@@ -57,11 +57,11 @@
 	 		 		NONE: nothing
 	 		 		
 	 		 -->
-	 		 <property name="hibernate.hbm2ddl.auto">create</property>
+	 		 <property name="hibernate.hbm2ddl.auto">validate</property>
 	 		 
 	 		 <mapping class = "com.cafe.models.User"/>
-	 		 <!--<mapping class = "com.cafe.models.Items"/>-->
-	 		 <!--<mapping class = "com.cafe.models.Order"/>-->
+	 		 <mapping class = "com.cafe.models.Items"/>
+	 		 <mapping class = "com.cafe.models.Order"/>
 	 	</session-factory>
 	 </hibernate-configuration>
 	 

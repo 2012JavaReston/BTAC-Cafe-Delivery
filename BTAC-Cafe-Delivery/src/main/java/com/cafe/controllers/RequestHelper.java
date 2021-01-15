@@ -17,6 +17,9 @@ public class RequestHelper {
 		String endpoint = req.getRequestURI();
 		Log.info(endpoint);
 		switch(endpoint) {
+			case "/BTAC-Cafe-Delivery/":
+				resp.sendRedirect("http://localhost:8080/BTAC-Cafe-Delivery/home");
+			break;
 			case "/BTAC-Cafe-Delivery/home":
 				UserController.goHome(req, resp);
 			break;

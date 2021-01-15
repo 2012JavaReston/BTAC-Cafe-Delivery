@@ -42,16 +42,20 @@ public class UserController {
 	public static void login(HttpServletRequest req, HttpServletResponse resp) throws JsonParseException, JsonMappingException, IOException {
 		if(req.getMethod().equals("POST")) {
 			Log.info("Logging in");
-			JSONObject json = new JSONObject(req.getReader());
-			Log.info(json.toString());
-			String username = json.getString("username");
-			String password = json.getString("password");
+//			JSONObject json = new JSONObject(req.getReader());
+//			Log.info(json.toString());
+			ObjectMapper om = new ObjectMapper();
+			User user = om.readValue(req.getReader(), com.cafe.models.User.class);
+			String username = user.getUsername();
+			String password = user.getPassword();
+//			String username = json.getString("username");
+//			String password = json.getString("password");
 			Log.info("Username " + username);
 			Log.info("Password " + password);
-			User user = UserService.verifyUser(username, password);
+			user = UserService.verifyUser(username, password);
 			HttpSession sesh = req.getSession();
 			sesh.setAttribute("user_id", user.getId());
-
+			Log.info(user.getFirstName());
 			resp.sendRedirect(URL + "home");
 		} else {
 //			resp.setStatus(405);
