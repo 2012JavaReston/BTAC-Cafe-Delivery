@@ -1,6 +1,7 @@
 package com.cafe.controllers;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,8 +42,12 @@ public class UserController {
 	public static void login(HttpServletRequest req, HttpServletResponse resp) throws JsonParseException, JsonMappingException, IOException {
 		if(req.getMethod().equals("POST")) {
 			Log.info("Logging in");
-			String username = req.getParameter("username");
-			String password = req.getParameter("password");
+			JSONObject json = new JSONObject(req.getReader());
+			Log.info(json.toString());
+			String username = json.getString("username");
+			String password = json.getString("password");
+			Log.info("Username " + username);
+			Log.info("Password " + password);
 			User user = UserService.verifyUser(username, password);
 			HttpSession sesh = req.getSession();
 			sesh.setAttribute("user_id", user.getId());
@@ -62,5 +67,13 @@ public class UserController {
 //			Log.info("Going to Login page");
 //			resp.sendRedirect(URL + "login.html");
 		}
+	}
+	
+	public static void getUsers(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+		List<User> users = UserService.getUsers();
+		Log.info(users.toString());
+		ObjectMapper om = new ObjectMapper();
+		resp.setContentType("application/json");
+		resp.getWriter().write(om.writeValueAsString(users));
 	}
 }

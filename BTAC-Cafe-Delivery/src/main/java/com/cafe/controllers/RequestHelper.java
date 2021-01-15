@@ -26,9 +26,12 @@ public class RequestHelper {
 			case "/BTAC-Cafe-Delivery/api/login":
 				UserController.login(req,resp);
 				break;
+			case "/BTAC-Cafe-Delivery/api/getallusers":
+				UserController.getUsers(req,resp);
+				break;
 			default:
-				RequestDispatcher redis = req.getRequestDispatcher("/hello");
-				redis.forward(req, resp);
+//				RequestDispatcher redis = req.getRequestDispatcher("/hello");
+//				redis.forward(req, resp);
 		}
 	}
 }

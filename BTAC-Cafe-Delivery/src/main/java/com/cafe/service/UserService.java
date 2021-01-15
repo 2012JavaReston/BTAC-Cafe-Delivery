@@ -1,5 +1,7 @@
 package com.cafe.service;
 
+import java.util.List;
+
 import com.cafe.dao.UserDao;
 import com.cafe.dao.UserDaoHibernate;
 import com.cafe.models.User;
@@ -14,6 +16,10 @@ public class UserService {
 	
 	public static User verifyUser(String username, String password) {
 		return uDao.verifyUser(username, password);
+	}
+	
+	public static List<User> getUsers() {
+		return uDao.getUsers();
 	}
 	
 	public static void deleteUser(User user) {
