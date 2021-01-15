@@ -3,12 +3,13 @@ package com.cafe.controllers;
 import java.io.IOException;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
-import org.json.JSONObject;
 
 import com.cafe.models.User;
 import com.cafe.service.UserService;
@@ -63,6 +64,17 @@ public class UserController {
 		}
 	}
 
+	public static void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+		if(req.getSession(false) != null) {
+			req.getSession().invalidate();
+			resp.sendRedirect(URL + "logout");
+			RequestDispatcher redis = req.getRequestDispatcher("/logout.html");
+			redis.forward(req, resp);
+		} else {
+			resp.setStatus(405);
+		}
+	}
+	
 	public static void goHome(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		if(req.getSession(false) != null) {
 			Log.info("Going to Home Page");

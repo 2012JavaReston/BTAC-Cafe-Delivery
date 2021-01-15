@@ -29,6 +29,21 @@ public class RequestHelper {
 			case "/BTAC-Cafe-Delivery/api/login":
 				UserController.login(req,resp);
 				break;
+			case "/BTAC-Cafe-Delivery/api/item":
+				ItemsController.item(req,resp);
+				break;
+			case "/BTAC-Cafe-Delivery/api/items":
+				ItemsController.items(req,resp);
+				break;
+			case "/BTAC-Cafe-Delivery/api/order":
+				OrderController.order(req,resp);
+				break;
+			case "/BTAC-Cafe-Delivery/api/orders":
+				OrderController.orders(req,resp);
+				break;
+			case "/BTAC-Cafe-Delivery/api/orderbyuser":
+				OrderController.orderByUser(req,resp);
+				break;
 			case "/BTAC-Cafe-Delivery/api/getallusers":
 				UserController.getUsers(req,resp);
 				break;
