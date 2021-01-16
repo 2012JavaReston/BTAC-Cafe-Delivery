@@ -1,5 +1,7 @@
 package com.cafe.models;
 
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,10 +13,11 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	
-	@Column(name = "firstName", nullable = false)
+	
+	@Column(name = "firstname", nullable = false)
 	private String firstName;
 	
-	@Column(name = "lastName", nullable = false)
+	@Column(name = "lastname", nullable = false)
 	private String lastName;
 
 	@Column(name = "username", unique = true, nullable = false)

@@ -1,10 +1,14 @@
 package com.cafe.models;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -19,13 +23,25 @@ public class Items {
 	private String itemName;
 	
 	@Column(name = "item_cost", nullable = false)
-	private int cost;
+	private double cost;
 	
-	public Items() {}
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JoinColumn(name = "order_foreign_key")
+	private Order orderId;
+	
+	public Items() {
+		super();
+	}
 
-	public Items(int id, String itemName, int cost) {
+	public Items(int id, String itemName, double cost) {
 		super();
 		this.id = id;
+		this.itemName = itemName;
+		this.cost = cost;
+	}
+	
+	public Items(String itemName, double cost) {
+		super();
 		this.itemName = itemName;
 		this.cost = cost;
 	}
@@ -46,7 +62,7 @@ public class Items {
 		this.itemName = itemName;
 	}
 
-	public int getCost() {
+	public double getCost() {
 		return cost;
 	}
 
