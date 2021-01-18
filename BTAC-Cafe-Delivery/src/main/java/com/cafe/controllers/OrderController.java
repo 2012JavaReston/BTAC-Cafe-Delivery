@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 
 import com.cafe.models.Order;
+import com.cafe.service.ItemsService;
 import com.cafe.service.OrderService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -34,6 +35,12 @@ public class OrderController {
 				ObjectMapper om = new ObjectMapper();
 				Order order = om.readValue(req.getReader(), Order.class);
 				OrderService.addOrder(order);
+				for(int x=0; x < order.getItems().size(); x++)
+				{
+					order.getItems().get(x).setOrderId(order);
+					ItemsService.addItems(order.getItems().get(x));
+				}
+				
 			} else if(req.getMethod().equals("PUT")) {
 				Log.info("In Put");
 				ObjectMapper om = new ObjectMapper();

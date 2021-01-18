@@ -17,7 +17,8 @@ public class OrderDaoHibernate implements OrderDao {
 		// TODO Auto-generated method stub
 		Session ses = HibernateUtil.getSession();
 		Transaction tx = ses.beginTransaction();
-		
+		System.out.println("Hi");
+		System.out.println(order.getItems().get(0).getItemName());
 		ses.save(order);
 		
 		tx.commit();

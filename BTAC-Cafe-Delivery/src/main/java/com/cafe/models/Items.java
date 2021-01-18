@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "cafe_items")
 public class Items {
@@ -25,6 +27,7 @@ public class Items {
 	@Column(name = "item_cost", nullable = false)
 	private double cost;
 	
+	@JsonBackReference
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "order_foreign_key")
 	private Order orderId;
@@ -66,7 +69,16 @@ public class Items {
 		return cost;
 	}
 
-	public void setCost(int cost) {
+
+	public Order getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Order orderId) {
+		this.orderId = orderId;
+	}
+
+	public void setCost(double cost) {
 		this.cost = cost;
 	}
 }
