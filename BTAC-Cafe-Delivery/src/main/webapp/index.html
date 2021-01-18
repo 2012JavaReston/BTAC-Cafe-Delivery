@@ -8,59 +8,75 @@
         <script src="index-ajax.js"></script>
     </head>
     <body>
+
+
         <div class="navbar bg-primary bg-gradient text-white" id="navbar"><h1>BTAC Cafe</h1></div>
 
         <div class="container" id="login-menu" style="display: block">
+            <div class = "row">
+                <div class = "col-md-4"></div>
+                <div class = "col-md-6">
             <h3>Login:</h3>
             <form id="login-form">
                 <div class="form-group row">
-                    <label for="login-username" class="col-sm-1 col-form-label">Username:</label>
+                    <label for="login-username" class="col-sm-3 col-form-label">Username:</label>
                     <div class="col-sm-6">
                         <input type="text" id="login-username" required class="form-control" placeholder="Username">
                     </div>
+                    <div class = "col-md-3"></div>
                 </div>
                 <div class="form-group row">
-                    <label for="login-password" class="col-sm-1 col-form-label">Password:</label>
+                    <label for="login-password" class="col-sm-3 col-form-label">Password:</label>
                     <div class="col-sm-6">
                         <input type="password" id="login-password" required class="form-control" placeholder="Password">
                     </div>
                 </div>
-                <input type="button" id="login-submit" value="Login" class="btn btn-primary">
-                <button type="button" id="switch-register" class="btn btn-secondary">Register</button>
+                <br>
+                <input type="button" id="login-submit" value="Login" class="btn btn-primary col-sm-4">
+                <button type="button" id="switch-register" class="btn btn-secondary col-sm-4">Register</button>
         </form>
+    </div>
+        <div class = "col-md-2"></div>
+         </div>
         </div>
 
         <div class="container" id="register-menu" style="display: none">
-            <h3>Register a new user:</h3>
+            <div class ="row">
+                <div class = "col-md-4"></div>
+                <div class = "col-md-6">
+            <h3>New User Registration:</h3>
             <form id="register-form">
                 <div class="form-group row">
-                    <label for="register-username" class="col-sm-1 col-form-label">Username:</label>
+                    <label for="register-username" class="col-sm-3 col-form-label">Username:</label>
                     <div class="col-sm-6">
                         <input type="text" id="register-username" required class="form-control" placeholder="Username">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="register-password" class="col-sm-1 col-form-label">Password:</label>
+                    <label for="register-password" class="col-sm-3 col-form-label">Password:</label>
                     <div class="col-sm-6">
                         <input type="password" id="register-password" required class="form-control" placeholder="Password">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="register-firstname" class="col-sm-1 col-form-label">First Name:</label>
+                    <label for="register-firstname" class="col-sm-3 col-form-label">First Name:</label>
                     <div class="col-sm-6">
                         <input type="text" id="register-firstname" required class="form-control" placeholder="John">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="register-lastname" class="col-sm-1 col-form-label">Last Name:</label>
+                    <label for="register-lastname" class="col-sm-3 col-form-label">Last Name:</label>
                     <div class="col-sm-6">
                         <input type="text" id="register-lastname" required class="form-control" placeholder="Doe">
                     </div>
                 </div>
-                <input type="button" id="register-submit" value="Register" class="btn btn-primary btn-center">
-                <button type="button" id="switch-login" class="btn btn-secondary btn-center">Cancel</button>
+                <br>
+                <input type="button" id="register-submit" value="Register" class="btn btn-primary btn-center col-sm-4">
+                <button type="button" id="switch-login" class="btn btn-secondary btn-center col-sm-4">Cancel</button>
             </form>
-       
+            </div>
+            <div class = "col-md-3"></div>
+        </div>
         </div>
     </body>
 </html>

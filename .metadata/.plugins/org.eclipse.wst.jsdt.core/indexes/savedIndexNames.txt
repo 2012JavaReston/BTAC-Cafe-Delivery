@@ -1,0 +1,7 @@
+INDEX VERSION 1.4+C:\Users\bjm63\my_git_repos\BTAC-Cafe-Delivery\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+4195177878.index
+666356469.index
+841674949.index
+303997394.index
+2846277833.index
+3445590292.index

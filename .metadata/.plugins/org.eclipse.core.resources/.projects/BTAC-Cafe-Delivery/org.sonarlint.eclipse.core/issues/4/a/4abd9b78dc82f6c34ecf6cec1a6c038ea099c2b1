@@ -1,0 +1,11 @@
+
+cjavascript:S11173",'td' is already declared in the upper scope.(çŠ¨ºþÿÿÿÿHÎRMAJORZ
+CODE_SMELL
+gjavascript:S18546"0Remove this useless assignment to variable "td".(çŠ¨ºþÿÿÿÿHÏRMAJORZ
+CODE_SMELL
+bjavascript:S1854="0Remove this useless assignment to variable "td".(Ðš”‚HÐRMAJORZ
+CODE_SMELL
+Ajavascript:S1534L"Duplicate key 'items'.(ñÇò¸HÑRMAJORZBUG
+Ajavascript:S1534P"Duplicate key 'items'.(ñÇò¸HÒRMAJORZBUG
+ajavascript:S1117`"/'order' is already declared in the upper scope.(´õââHÓRMAJORZ
+CODE_SMELL
