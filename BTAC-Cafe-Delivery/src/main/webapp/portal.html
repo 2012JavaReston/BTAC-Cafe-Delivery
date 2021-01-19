@@ -1,11 +1,10 @@
-<!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <link href="style.css" rel="stylesheet">
-        <script src="portal-ajax.js"></script>
+        <link href="http://localhost:8080/BTAC-Cafe-Delivery/style.css" rel="stylesheet">
+        <script src="http://localhost:8080/BTAC-Cafe-Delivery/portal-ajax.js"></script>
     </head>
     <body>
         <div class="navbar bg-primary bg-gradient text-white" id="navbar"><h1>BTAC Cafe</h1>
@@ -35,29 +34,18 @@
                         <tr>
                             <td>Coffee</td>
                             <td>2.00</td>
-                            <td><div class="row">
-                                <input type="button" class="btn btn-success btn-sm col-sm-4" value="+">
-                                <div class="col-md-1"></div>
-                                <input type="button" class="btn btn-danger btn-sm col-sm-4" value="-">
-                            </div></td>
                         </tr>
                         <tr>
-                            <td>Coffee</td>
-                            <td>2.00</td>
-                            <td><div class="row">
-                                <input type="button" class="btn btn-success btn-sm col-sm-4" value="+">
-                                <div class="col-md-1"></div>
-                                <input type="button" class="btn btn-danger btn-sm col-sm-4" value="-">
-                            </div></td>
+                            <td>Bagel</td>
+                            <td>3.00</td>
                         </tr>
                         <tr>
-                            <td>Coffee</td>
-                            <td>2.00</td>
-                            <td><div class="row">
-                                <input type="button" class="btn btn-success btn-sm col-sm-4" value="+">
-                                <div class="col-md-1"></div>
-                                <input type="button" class="btn btn-danger btn-sm col-sm-4" value="-">
-                            </div></td>
+                            <td>Water</td>
+                            <td>1.00</td>
+                        </tr>
+                        <tr>
+                            <td>Apple</td>
+                            <td>0.50</td>
                         </tr>
                     </tbody>
                 </table>
@@ -84,26 +72,26 @@
                         </tr>
                     </thead>
                     <tbody id="order-table-body">
-                        <tr>
-                            <td>Coffee</td>
-                            <td>2.00</td>
-                        </tr>
-                        <tr>
-                            <td>Coffee</td>
-                            <td>2.00</td>
-                        </tr>
-                       
                     </tbody>
                 </table>
             </div>
             <div class="col-md-3"></div>
             </div>
         </div>
+        <div class="container" id="login-menu" style="display: block">
+            <div class = "row">
+                <div class = "col-md-4"></div>
+                <div class = "col-md-6">
+                    <button type="button" id="order-submit" class="btn btn-primary col-sm-4">Submit</button>
+                    <button type="button" id="order-clear" class="btn btn-danger col-sm-4">Clear</button>
+                </div>
+                <div class = "col-md-4"></div>
+        </div>
 
 
         <div class = "row">
             <div class = col-md-3></div>
-            <div class = col-md-6><h2 style= "text-align: center">Orders:</h2></div>
+            <div class = col-md-6><h2 style= "text-align: center">Previous Orders:</h2></div>
             <div class = col-md-3></div>
         </div>
 
@@ -120,18 +108,6 @@
                         </tr>
                     </thead>
                     <tbody id="orders-table-body">
-                        <tr>
-                            <td>6.00</td>
-                            <td>Coffee, Banana, Sandwich</td>
-                        </tr>
-                        <tr>
-                            <td>6.00</td>
-                            <td>Coffee, Banana, Sandwich</td>
-                        </tr>
-                        <tr>
-                            <td>6.00</td>
-                            <td>Coffee, Banana, Sandwich</td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

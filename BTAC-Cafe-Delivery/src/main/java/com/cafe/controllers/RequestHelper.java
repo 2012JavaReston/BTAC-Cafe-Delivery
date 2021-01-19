@@ -17,42 +17,39 @@ public class RequestHelper {
 		String endpoint = req.getRequestURI();
 		Log.info(endpoint);
 		switch(endpoint) {
-			case "/BTAC-Cafe-Delivery/":
-				resp.sendRedirect("http://localhost:8080/BTAC-Cafe-Delivery/home");
-			break;
-			case "/BTAC-Cafe-Delivery/home":
+			case "/BTAC-Cafe-Delivery/cafe/home":
 				UserController.goHome(req, resp);
 			break;
-			case "/BTAC-Cafe-Delivery/api/user":
+			case "/BTAC-Cafe-Delivery/cafe/api/user":
 				UserController.createUser(req,resp);
 				break;
-			case "/BTAC-Cafe-Delivery/api/login":
+			case "/BTAC-Cafe-Delivery/cafe/api/login":
 				UserController.login(req,resp);
 				break;
-			case "/BTAC-Cafe-Delivery/api/logout":
+			case "/BTAC-Cafe-Delivery/cafe/api/logout":
 				UserController.logout(req,resp);
 				break;
-			case "/BTAC-Cafe-Delivery/api/item":
+			case "/BTAC-Cafe-Delivery/cafe/api/item":
 				ItemsController.item(req,resp);
 				break;
-			case "/BTAC-Cafe-Delivery/api/items":
+			case "/BTAC-Cafe-Delivery/cafe/api/items":
 				ItemsController.items(req,resp);
 				break;
-			case "/BTAC-Cafe-Delivery/api/order":
+			case "/BTAC-Cafe-Delivery/cafe/api/order":
 				OrderController.order(req,resp);
 				break;
-			case "/BTAC-Cafe-Delivery/api/orders":
+			case "/BTAC-Cafe-Delivery/cafe/api/orders":
 				OrderController.orders(req,resp);
 				break;
-			case "/BTAC-Cafe-Delivery/api/orderbyuser":
+			case "/BTAC-Cafe-Delivery/cafe/api/orderbyuser":
 				OrderController.orderByUser(req,resp);
 				break;
-			case "/BTAC-Cafe-Delivery/api/getallusers":
+			case "/BTAC-Cafe-Delivery/cafe/api/getallusers":
 				UserController.getUsers(req,resp);
 				break;
 			default:
-//				RequestDispatcher redis = req.getRequestDispatcher("/hello");
-//				redis.forward(req, resp);
+				resp.sendRedirect("http://localhost:8080/BTAC-Cafe-Delivery/cafe/home");
+				break;
 		}
 	}
 }

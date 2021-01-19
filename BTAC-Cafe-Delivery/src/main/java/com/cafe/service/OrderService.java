@@ -18,9 +18,13 @@ public class OrderService {
 		return oDao.getOrderById(id);
 	}
 	
-	public static List<Order> getOrderByUserId(int id) {
-		return oDao.getOrderByUserId(id);
-	}
+//	public static List<Order> getOrderByUserId(int id) {
+//		return oDao.getOrderByUserId(id);
+//	}
+	
+	public static List<Order> getOrderByUsername(String username) {
+		return oDao.getOrderByUsername(username);
+	} 
 	
 	public static List<Order> getOrders() {
 		return oDao.getOrders();

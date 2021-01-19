@@ -36,11 +36,19 @@ public class OrderDaoHibernate implements OrderDao {
 	}
 
 	//Retrieves all orders of the given userId. Returns null if nothing is found
+//	@Override
+//	public List<Order> getOrderByUserId(int id) {
+//		Session ses = HibernateUtil.getSession();
+//		List<Order> order = ses.createQuery("FROM Order WHERE id = :id", Order.class)
+//				.setParameter("id", id).list();
+//		return order;
+//	}
+	
 	@Override
-	public List<Order> getOrderByUserId(int id) {
+	public List<Order> getOrderByUsername(String username) {
 		Session ses = HibernateUtil.getSession();
-		List<Order> order = ses.createQuery("FROM Order WHERE userid = :id", Order.class)
-				.setParameter("id", id).list();
+		List<Order> order = ses.createQuery("FROM Order WHERE username = :username", Order.class)
+				.setParameter("username", username).list();
 		return order;
 	}
 	

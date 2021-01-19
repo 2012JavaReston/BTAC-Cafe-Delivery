@@ -35,9 +35,10 @@ public class OrderController {
 				Log.info("In Post");
 				ObjectMapper om = new ObjectMapper();
 				Order order = om.readValue(req.getReader(), Order.class);
-				OrderService.addOrder(order);
+				order.setUsername(req.getSession(false).getAttribute("username").toString());
 				for(int x=0; x < order.getItems().size(); x++)
 				{
+					order.setTotal(order.getTotal() + order.getItems().get(x).getCost());
 					order.getItems().get(x).setOrderId(order);
 					ItemsService.addItems(order.getItems().get(x));
 				}
@@ -66,10 +67,11 @@ public class OrderController {
 			if(req.getSession(false) != null) {
 				if(req.getMethod().equals("GET")) {
 					Log.info("In Get");
-					List<Order> order = (List<Order>) OrderService.getOrderByUserId(Integer.parseInt(req.getParameter("id")));
+					List<Order> order = (List<Order>) OrderService.getOrderByUsername(req.getSession(false).getAttribute("username").toString());
 					ObjectMapper om = new ObjectMapper();
 					resp.setContentType("application/json");
 					resp.getWriter().write(om.writeValueAsString(order));
+					resp.setStatus(200);
 				} else {
 					resp.setStatus(405);
 				} 
