@@ -9,22 +9,24 @@ import org.hibernate.Transaction;
 import com.cafe.models.Order;
 import com.cafe.util.HibernateUtil;
 
+/**
+ *Dao for the items object utilizing hibernate to store the objects
+ */
 public class OrderDaoHibernate implements OrderDao {
 	private final static Logger Log = Logger.getLogger(OrderDaoHibernate.class);
-
+	
+	//Adds a given order to the database
 	@Override
 	public void addOrder(Order order) {
-		// TODO Auto-generated method stub
 		Session ses = HibernateUtil.getSession();
 		Transaction tx = ses.beginTransaction();
-		System.out.println("Hi");
-		System.out.println(order.getItems().get(0).getItemName());
 		ses.save(order);
 		
 		tx.commit();
 		ses.close();
 	}
-
+	
+	//Retrieves an order with the given id from the database. Returns null if nothing is found
 	@Override
 	public Order getOrderById(int id) {
 		Session ses = HibernateUtil.getSession();
@@ -33,14 +35,16 @@ public class OrderDaoHibernate implements OrderDao {
 		return order;
 	}
 
+	//Retrieves all orders of the given userId. Returns null if nothing is found
 	@Override
-	public Order getOrderByUserId(int id) {
+	public List<Order> getOrderByUserId(int id) {
 		Session ses = HibernateUtil.getSession();
-		Order order = ses.createQuery("FROM Order WHERE userid = :id", Order.class)
-				.setParameter("id", id).list().get(0);
+		List<Order> order = ses.createQuery("FROM Order WHERE userid = :id", Order.class)
+				.setParameter("id", id).list();
 		return order;
 	}
-
+	
+	//Retrieves all orders. Returns null if nothing is found.
 	@Override
 	public List<Order> getOrders() {
 		Session ses = HibernateUtil.getSession();
@@ -48,6 +52,7 @@ public class OrderDaoHibernate implements OrderDao {
 		return orders;
 	}
 
+	//Deletes the given order from the database
 	@Override
 	public void deleteOrder(Order order) {
 		Session ses = HibernateUtil.getSession();
@@ -57,7 +62,8 @@ public class OrderDaoHibernate implements OrderDao {
 		ses.close();
 
 	}
-
+	
+	//Updates the given order from the database.
 	@Override
 	public void updateOrder(Order order) {
 		Session ses = HibernateUtil.getSession();

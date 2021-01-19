@@ -11,9 +11,13 @@ import com.cafe.controllers.UserController;
 import com.cafe.models.User;
 import com.cafe.util.HibernateUtil;
 
-
+/**
+ *Dao for the User object utilizing hibernate to store the objects
+ */
 public class UserDaoHibernate implements UserDao {
 	private final static Logger Log = Logger.getLogger(UserDaoHibernate.class);
+	
+	//Inserts a user into the database.
 	@Override
 	public void insert(User user) {
 		// TODO Auto-generated method stub
@@ -26,6 +30,7 @@ public class UserDaoHibernate implements UserDao {
 		ses.close();
 	}
 
+	//Returns a user that matches the given parameters. If none exist then it will return null.
 	@Override
 	public User verifyUser(String username, String password) {
 		// TODO Auto-generated method stub
@@ -38,6 +43,7 @@ public class UserDaoHibernate implements UserDao {
 		return user;
 	}
 	
+	//Returns all users from the database
 	@Override
 	public List<User> getUsers() {
 		Session ses = HibernateUtil.getSession();
@@ -46,6 +52,7 @@ public class UserDaoHibernate implements UserDao {
 		return users;
 	}
 
+	//Deletes a given user from the database
 	@Override
 	public void delete(User user) {
 		Session ses = HibernateUtil.getSession();

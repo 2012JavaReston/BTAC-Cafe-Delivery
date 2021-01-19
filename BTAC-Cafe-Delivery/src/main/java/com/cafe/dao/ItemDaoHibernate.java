@@ -8,10 +8,13 @@ import org.hibernate.Transaction;
 
 import com.cafe.models.Items;
 import com.cafe.util.HibernateUtil;
-
+/**
+ *Dao for the items object utilizing hibernate to store the objects
+ */
 public class ItemDaoHibernate implements ItemDao {
 	private final static Logger Log = Logger.getLogger(ItemDaoHibernate.class);
-
+	
+	//Adds the given item to the database.
 	@Override
 	public void addItem(Items item) {
 		Session ses = HibernateUtil.getSession();
@@ -21,15 +24,16 @@ public class ItemDaoHibernate implements ItemDao {
 		ses.close();
 	}
 
+	//Returns an item with the given id returns null if nothing is found
 	@Override
 	public Items getItem(int id) {
-		// TODO Auto-generated method stub
 		Session ses = HibernateUtil.getSession();
 		Items item = ses.get(Items.class,  id);
 		ses.close();
 		return item;
 	}
 
+	//Returns an item with the given name from the database returns null if nothing is found
 	@Override
 	public Items getItemByName(String name) {
 		Session ses = HibernateUtil.getSession();
@@ -37,7 +41,8 @@ public class ItemDaoHibernate implements ItemDao {
 				.setParameter("name", name).list().get(0);
 		return item;
 	}
-
+	
+	//Returns all items in the database
 	@Override
 	public List<Items> getItems() {
 		Session ses = HibernateUtil.getSession();

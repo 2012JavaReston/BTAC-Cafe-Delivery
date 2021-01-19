@@ -12,6 +12,7 @@ import com.cafe.controllers.RequestHelper;
 
 /*
  * Servlet implementation class MasterServlet
+ * All methods will redirect calls to the request helper.
  */
 public class MasterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
