@@ -30,8 +30,8 @@
 	 		<property name = "hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 	 		-->
 	 		
-	 		<property name="hibernate.connection.url">rev-cafe-db.chqy1nhu1fok.us-east-1.rds.amazonaws.com</property>
-	 		<property name = "hibernate.connection.driver_class">com.postgresql.Driver</property>
+	 		<property name="hibernate.connection.url">jdbc:postgresql://rev-cafe-db.chqy1nhu1fok.us-east-1.rds.amazonaws.com/postgres</property>
+	 		<property name = "hibernate.connection.driver_class">org.postgresql.Driver</property>
 	 		<property name = "hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
 	 		<!-- Additional Hibernate Options -->
 	 		
@@ -57,9 +57,11 @@
 	 		 		NONE: nothing
 	 		 		
 	 		 -->
-	 		 <property name="hibernate.hbm2ddl.auto">create</property>
+	 		 <property name="hibernate.hbm2ddl.auto">update</property>
 	 		 
-	 		 <mapping class = "com.revature.models.Planet"/>
+	 		 <mapping class = "com.cafe.models.User"/>
+	 		 <mapping class = "com.cafe.models.Items"/>
+	 		 <mapping class = "com.cafe.models.Order"/>
 	 	</session-factory>
 	 </hibernate-configuration>
 	 

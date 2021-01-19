@@ -13,11 +13,18 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
                         
         
+<<<<<<< HEAD
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
                 
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
                 
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-test-sources/test-annotations"/>
+=======
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+                        
+        
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
+>>>>>>> ffe7304e3dd1792689512bfaea7fd2472aa80411
                         
         
         <property name="context-root" value="BTAC-Cafe-Delivery"/>
