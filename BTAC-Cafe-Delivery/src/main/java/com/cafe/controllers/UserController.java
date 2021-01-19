@@ -20,7 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class UserController {
 	
 	private final static Logger Log = Logger.getLogger(UserController.class);
-	private final static String URL = "http://localhost:8080/BTAC-Cafe-Delivery/cafe/";
+	private final static String URL = "http://localhost:8080/BTAC-Cafe-Delivery/";
 
 	public static void createUser(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		Log.info(req.getMethod().toString());
@@ -31,7 +31,6 @@ public class UserController {
 			Log.info(user.getFirstName());
 			UserService.createUser(user);
 			resp.setStatus(201);
-
 		} else {
 			resp.setStatus(403);
 			Log.info("Not post");
@@ -50,8 +49,8 @@ public class UserController {
 			user = UserService.verifyUser(username, password);
 			HttpSession sesh = req.getSession();
 			sesh.setAttribute("user_id", user.getId());
+			sesh.setAttribute("username", user.getUsername());
 			Log.info(user.getFirstName());
-			resp.sendRedirect(URL + "home");
 			resp.setStatus(200);
 		} else {
 			resp.setStatus(401);
@@ -61,21 +60,21 @@ public class UserController {
 	public static void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		if(req.getSession(false) != null) {
 			req.getSession().invalidate();
-			resp.sendRedirect(URL + "logout");
-			RequestDispatcher redis = req.getRequestDispatcher("/logout.html");
-			redis.forward(req, resp);
+			resp.sendRedirect(URL + "cafe/home");
 			resp.setStatus(200);
 		} else {
 			resp.setStatus(405);
 		}
 	}
 	
-	public static void goHome(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	public static void goHome(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		if(req.getSession(false) != null) {
 			Log.info("Going to Home Page");
-			
+			RequestDispatcher redis = req.getRequestDispatcher("/portal.html");
+			redis.forward(req, resp);
+			resp.setStatus(200);
 		} else {
-
+			resp.setStatus(405);
 		}
 	}
 	

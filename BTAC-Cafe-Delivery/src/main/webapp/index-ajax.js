@@ -26,10 +26,13 @@ function submitLogin(){
     let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function(){
-        if(xhttp.readyState == 4 && status == 200){
-            alert("Login successful!");
-        } else if(xhttp.readyState == 4 && status != 200){
-            alert("Could not login.");
+        console.log(xhttp.readyState);
+        console.log(xhttp.status);
+        if(xhttp.readyState == 4 && xhttp.status == 200){
+            window.location.replace("http://localhost:8080/BTAC-Cafe-Delivery/cafe/home")
+        } else if(xhttp.readyState == 4 && xhttp.status != 200){
+            alert("Could not login. " + xhttp.status);
+            console.log(xhttp.status);
         }
 
     }
@@ -50,11 +53,11 @@ function submitRegister(){
     let xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function(){
-        if(xhttp.readyState == 4 && status == 200){
+        if(xhttp.readyState == 4 && xhttp.status == 201){
             alert("Registered successfully!");
             showLoginView();
-        } else if(xhttp.readyState == 4 && status != 200){
-            alert("Could not register.");
+        } else if(xhttp.readyState == 4 && xhttp.status != 201){
+            alert("Could not register." + xhttp.status);
         }
     }
     let registerURL = "http://localhost:8080/BTAC-Cafe-Delivery/cafe/api/user";
@@ -64,8 +67,8 @@ function submitRegister(){
     let user={
         username: document.getElementById("register-username").value,
         password: document.getElementById("register-password").value,
-        firstname: document.getElementById("register-firstname").value,
-        lastname: document.getElementById("register-lastname").value
+        firstName: document.getElementById("register-firstname").value,
+        lastName: document.getElementById("register-lastname").value
     }
 
     xhttp.send(JSON.stringify(user));
